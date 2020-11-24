@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular la superficie y volumen de una esfera</title>
+    <script type="text/javascript">
+        window.onload = calcularSuperficie;
+
+        function calcularSuperficie() {
+            var radio = document.getElementById("radioSuperficie").value;
+            if (isNumber(radio)) {
+                var superficie = 4 * Math.PI * Math.pow(radio, 2);
+                document.getElementById("resultadoSuperficie").innerHTML = "La superficie \
+                    de una esfera con radio " + radio + " cm" + " es " + superficie + " cm2";
+            } else {
+                document.getElementById("resultadoSuperficie").innerHTML = "Valor \
+                    no numerico";
+            }
+        }
+
+        function isNumber(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+        window.onload = calcularVolumen;
+
+        function calcularVolumen() {
+            var radio = document.getElementById("radioVolumen").value;
+            if (isNumber(radio)) {
+                var volumen = (4 / 3) * Math.PI * Math.pow(radio, 3);
+                document.getElementById("resultadoVolumen").innerHTML = "El volumen \
+            de una esfera con radio " + radio + " cm" + " es " + volumen + " cm3";
+            } else {
+                document.getElementById("resultadoVolumen").innerHTML = "Valor \
+            no numerico";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Superficie</h1>
+    <article>
+        La fórmula para el calculo de la superficie de una esfera es:
+        <br><strong>Superficie = 4 * &#960; * R &#178;</strong>
+    </article>
+
+    <p>
+        Radio (en cm): <input type="text" id="radioSuperficie" value="20">
+        <input type="button" onclick="calcularSuperficie()" value="Calcular">
+        <div id="resultadoSuperficie"></div>
+    </p>
+    <h1>Volumen</h1>
+    <article>
+        La fórmula para el calculo del volumen de una esfera es:
+        <br><strong>Volumen = 3/4 * &#960; * R &#179;</strong>
+    </article>
+
+    <p>
+        Radio (en cm): <input type="text" id="radioVolumen" value="20">
+        <input type="button" onclick="calcularVolumen()" value="Calcular">
+        <div id="resultadoVolumen"></div>
+    </p>
+
+</body>
+
+</html>
